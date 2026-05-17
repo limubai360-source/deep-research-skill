@@ -1,5 +1,7 @@
 # Deep Research Skill
 
+English | [简体中文](README.zh-CN.md)
+
 A portable deep-research workflow for Codex, Claude Code, and OpenClaw-style agents.
 
 This skill turns broad research prompts into evidence-backed synthesis with clear scope, source strategy, cross-checking, structured findings, first-principles product implications, and optional HTML report / HTML slide deck outputs.
