@@ -52,7 +52,11 @@ Use a short natural-language notice, not a long preamble. Example:
    - Explain what changed, what matters, why it matters, and what remains uncertain.
    - Include important scope expansions that are necessary for a rigorous answer, even when the user did not explicitly request them. Make clear why they matter.
    - When new evidence or a newly identified adjacent topic materially changes the report's logic, revisit the whole outline before delivering. Integrate the new point into the argument structure, timeline, and implications instead of inserting it as an obvious afterthought.
-   - For product, market, or business-planning research, add a first-principles implications section when useful: identify the durable user problem, constraints, non-obvious wedge, build-vs-buy boundary, MVP scope, differentiation, risks, and relevant open-source reference projects.
+   - For technical-route, architecture, product strategy, or implementation-path research, synthesize each route as an actionable option, not only as a source summary. Include: core principle, implementation approach, practical scenarios, product implications, evidence strength, tradeoffs, and a 1-5 score when the user is comparing options.
+   - When a route has a meaningful system structure, include a compact Mermaid architecture diagram or an equivalent text architecture. Prefer diagrams that show data flow, decision points, feedback loops, and governance boundaries.
+   - For product, market, strategy, business-planning, or investment research, include first-principles analysis as an explicit, standalone section when useful. Do not merely weave first-principles reasoning into findings, conclusions, recommendations, or implications.
+   - For company or product-strategy research, the standalone first-principles section must answer: why this company is changing, what external or internal conditions changed, which underlying user/market/technical constraints forced or rewarded the change, and what causal chain connects those constraints to the company's current product and go-to-market moves.
+   - The standalone first-principles section should identify the durable user problem, underlying constraints, root economic or workflow tradeoff, non-obvious wedge, build-vs-buy boundary, MVP scope, differentiation, risks, and relevant open-source reference projects when applicable. It should derive conclusions from first constraints instead of only restating a strategy framework.
    - Call out evidence strength: high, medium, low.
    - Avoid implying certainty when sources are thin, stale, or conflicted.
    - Before finalizing synthesis, ask whether the user wants a different output angle or a reusable template improvement.
@@ -62,6 +66,9 @@ Use a short natural-language notice, not a long preamble. Example:
    - Cite sources for important claims.
    - Include implications, recommendations, next steps, and open questions when useful.
    - Write outward-facing reports in the corrected professional framing. Avoid sections such as "correction" or "user misconception" that expose the user's initial uncertainty; use neutral labels like "scope and terminology", "research assumptions", or "definition note" instead.
+   - When the user asks in Chinese or the output is intended for a Chinese knowledge base, use Chinese for all report framework headings and structural labels. Do not use English headings such as "Executive Summary", "Research Scope", "Key Findings", "Risks And Caveats", or "Source List" unless the user explicitly requests English.
+   - When writing files, create new files unless the user explicitly asks to replace an existing artifact. Use clear date/topic filenames and keep related Markdown/HTML outputs in the same folder when practical.
+   - After creating a file-based output, run a lightweight structural check before final delivery: file exists, section count is plausible, expected cards/tables/diagrams are present, links/anchors are not obviously broken, and no old file was unintentionally overwritten.
    - Offer a more detailed appendix only when the user needs auditability.
    - End with a short "skill improvement notes" section only if this run exposed concrete improvements to the skill.
 
@@ -94,9 +101,26 @@ Every research output should include:
 - Key findings with evidence.
 - Caveats, uncertainty, and conflicting signals.
 - Recommendations or implications when the user is making a decision.
+- For product, market, strategy, business-planning, or investment research, an explicit standalone section titled "First-Principles Analysis" or "第一性原理分析" when useful. This section must not be replaced by scattered reasoning inside other sections. For company/product-strategy reports, it must explicitly explain why the company changed, what happened in the market or technology environment, and how first-principles constraints lead to the observed product and sales strategy.
 - Source list with links or file paths.
 
+For Chinese reports, render those output requirements with Chinese section titles, for example: "执行摘要", "研究范围", "关键发现", "第一性原理分析", "技术路线", "销售方式与商业化", "风险与限制", "后续建议", and "来源清单". Preserve official product names, article titles, and quoted source titles in their original language when needed for accuracy.
+
+For technical-route research, add a route comparison layer:
+
+- A route overview table: route, pain point addressed, feasible implementation direction.
+- Per-route details: core principle, implementation approach, practical scenarios, product implications, score, and key caveats.
+- Architecture diagrams where helpful, using Mermaid for reports that support it.
+- A scoring summary table with priority recommendation and rationale.
+
 HTML report outputs should preserve the full substantive content of the research while using a compact report layout. Avoid oversized hero sections, oversized titles, and marketing-page composition.
+
+For HTML reports, verify structure after generation when possible:
+
+- Title, first viewport, table of contents, section anchors, and source links exist.
+- Repeated elements match the report intent, such as source cards, route cards, diagrams, or timeline events.
+- Mermaid diagrams are embedded as source blocks or renderable diagram containers; note when CDN rendering requires network access.
+- If browser automation is unavailable, report the static checks that were run instead of implying visual QA was completed.
 
 HTML slide deck outputs should adapt the research into a presentation narrative with 16:9 slides, strong visual hierarchy, keyboard navigation, and concise slide copy. Unlike full HTML reports, slide decks may compress wording and restructure content for presentation clarity.
 

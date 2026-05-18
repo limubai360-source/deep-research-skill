@@ -1,4 +1,4 @@
 interface:
   display_name: "Deep Research"
-  short_description: "Plan, verify, and synthesize evidence-backed research."
-  default_prompt: "Use this skill to run a deep research workflow with source quality checks, evidence tracking, uncertainty, and actionable outputs."
+  short_description: "Plan, verify, and synthesize evidence-backed research reports."
+  default_prompt: "Use this skill to run a deep research workflow with source quality checks, evidence tracking, uncertainty, technical route comparison, HTML report generation, and actionable outputs."
