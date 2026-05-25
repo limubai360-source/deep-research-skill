@@ -1,135 +1,135 @@
 ---
 name: deep-research
-description: Conduct rigorous deep research with scoped questions, source strategy, evidence tracking, source quality checks, synthesis, uncertainty, and actionable recommendations. Use when the user asks for deep research, industry or market research, competitive analysis, technical or product research, policy or standards research, literature review, investment or business analysis, or any answer that requires multiple sources, current information, citations, verification, and reasoned synthesis.
+description: Deep research workflow for scoped questions, source strategy, evidence tracking, source quality checks, synthesis, uncertainty, and actionable recommendations. Use for deep research, industry or market research, competitive analysis, technical or product research, policy or standards research, literature review, investment or business analysis, or any answer requiring multiple sources, current information, citations, verification, and reasoned synthesis.
 ---
 
 # Deep Research
 
-## Overview
+## 概述
 
-Use this skill to turn broad research questions into evidence-backed synthesis. Optimize for truth, traceability, and decision usefulness rather than volume of sources.
+使用本技能把宽泛、模糊或带有噪音的研究问题，转化为有证据、有结构、有判断、有建议的研究输出。优先追求真实性、可追溯性和决策价值，而不是堆砌资料数量。
 
-## Opening Notice
+## 开场提醒
 
-At the start of every research task, briefly tell the user:
+每次研究任务开始时，先简短告诉用户：
 
-- The research process that will be used: scope the question, choose evidence strategy, gather sources, verify conflicts, synthesize findings, and produce recommendations.
-- The selected research mode: quick scan, standard research, deep report, or decision memo.
-- This skill is still being refined, and the user can tune the process during this run.
+- 本轮会采用的研究流程：界定问题、确定证据策略、收集来源、交叉验证、综合分析、输出建议。
+- 本轮研究模式：快速扫描、标准研究、深度报告或决策备忘录。
+- 本技能仍在打磨中，用户可以在本轮过程中调整流程。
 
-Use a short natural-language notice, not a long preamble. Example:
+示例：
 
 ```text
 我会按 deep-research 流程来做：先界定问题和范围，再确定证据策略，之后收集和交叉验证来源，最后给出结论、证据、风险和建议。这个 skill 还在打磨中；每个关键步骤我都会提醒你是否要顺手优化它。
 ```
 
-## Workflow
+## 工作流程
 
-1. Frame the research question.
-   - Restate the goal, decision context, audience, time horizon, geography, and scope.
-   - Identify key subquestions and assumptions.
-   - Actively identify adjacent topics, missing dimensions, and likely blind spots that materially affect the answer. When the user's framing is narrow or influenced by incomplete market narratives, briefly recommend whether to expand the scope before proceeding.
-   - Ask only for missing intent that materially changes the research plan.
-   - After framing, remind the user that this skill is still being refined and ask whether this run reveals any process improvement to capture.
+1. 界定研究问题。
+   - 重述目标、决策背景、受众、时间范围、地域范围和研究边界。
+   - 识别关键子问题、显性假设和隐含假设。
+   - 主动识别相邻议题、缺失维度和可能影响结论的盲区。如果用户框架过窄或受市场叙事影响，先简短建议是否需要扩展范围。
+   - 只在缺失信息会实质改变研究方案时提问。
+   - 完成问题界定后，提醒用户本技能仍在打磨，并询问本轮是否暴露了值得沉淀的流程改进点。
 
-2. Choose the evidence strategy.
-   - Prefer primary sources: official docs, laws, filings, papers, standards, original datasets, product pages, release notes, repos, and direct company materials.
-   - Use secondary sources to interpret, compare, or discover leads.
-   - For current topics, browse and verify dates.
-   - For OpenAI product/API questions, use official OpenAI sources first.
-   - After choosing the evidence strategy, ask whether the user wants to adjust source preferences or add a reusable rule to the skill.
+2. 确定证据策略。
+   - 优先使用一手和权威来源：官方文档、法律法规、财报/备案、论文、标准、原始数据集、产品页、发布说明、代码仓库和公司直接材料。
+   - 使用二手资料来理解、比较或发现线索，但不要把它们直接等同于事实。
+   - 对近期变化、价格、法规、产品能力、公司动态等时效性信息，必须联网核验并比较发布日期。
+   - 涉及 OpenAI 产品或 API 时，优先使用 OpenAI 官方来源。
+   - 确定证据策略后，询问用户是否要调整来源偏好，或把本轮偏好沉淀为可复用规则。
 
-3. Collect evidence deliberately.
-   - Track source title, URL or file path, publisher, date, source type, and what claim it supports.
-   - Separate facts from interpretations and inferences.
-   - Seek disconfirming or limiting evidence for important claims.
-   - Treat unsourced marketing claims, viral posts, and community narratives as leads, not as facts. Verify them against primary or high-quality secondary sources before using them.
-   - If the user's input contains a factual error, ambiguous attribution, or concept drift, flag it during the research process and propose the corrected framing. Do not preserve the user's mistaken wording as a named correction in the final outward-facing report unless the user explicitly wants an audit trail.
-   - While collecting, mention when the current skill guidance is insufficient or too broad, and ask whether to improve it after this run.
+3. 有意识地收集证据。
+   - 记录来源标题、链接或文件路径、发布方、日期、来源类型，以及它支持的主张。
+   - 区分事实、解释、推断和观点。
+   - 对关键结论寻找反证、限制条件和冲突证据。
+   - 把无来源的营销说法、热帖、社区叙事当作线索，而不是事实；必须用一手或高质量二手来源验证后再采用。
+   - 如果用户输入中存在事实错误、归因模糊或概念漂移，研究过程中要指出并提出修正框架。最终面向外部的报告除非用户要求保留审计轨迹，否则不要用“纠错用户”一类措辞。
+   - 收集过程中如果发现当前技能指引不足或过宽，提醒用户本轮结束后可以优化技能。
 
-4. Synthesize.
-   - Group findings by question, not by source.
-   - Explain what changed, what matters, why it matters, and what remains uncertain.
-   - Include important scope expansions that are necessary for a rigorous answer, even when the user did not explicitly request them. Make clear why they matter.
-   - When new evidence or a newly identified adjacent topic materially changes the report's logic, revisit the whole outline before delivering. Integrate the new point into the argument structure, timeline, and implications instead of inserting it as an obvious afterthought.
-   - For technical-route, architecture, product strategy, or implementation-path research, synthesize each route as an actionable option, not only as a source summary. Include: core principle, implementation approach, practical scenarios, product implications, evidence strength, tradeoffs, and a 1-5 score when the user is comparing options.
-   - When a route has a meaningful system structure, include a compact Mermaid architecture diagram or an equivalent text architecture. Prefer diagrams that show data flow, decision points, feedback loops, and governance boundaries.
-   - For product, market, strategy, business-planning, or investment research, include first-principles analysis as an explicit, standalone section when useful. Do not merely weave first-principles reasoning into findings, conclusions, recommendations, or implications.
-   - For company or product-strategy research, the standalone first-principles section must answer: why this company is changing, what external or internal conditions changed, which underlying user/market/technical constraints forced or rewarded the change, and what causal chain connects those constraints to the company's current product and go-to-market moves.
-   - The standalone first-principles section should identify the durable user problem, underlying constraints, root economic or workflow tradeoff, non-obvious wedge, build-vs-buy boundary, MVP scope, differentiation, risks, and relevant open-source reference projects when applicable. It should derive conclusions from first constraints instead of only restating a strategy framework.
-   - Call out evidence strength: high, medium, low.
-   - Avoid implying certainty when sources are thin, stale, or conflicted.
-   - Before finalizing synthesis, ask whether the user wants a different output angle or a reusable template improvement.
+4. 综合分析。
+   - 按问题组织发现，而不是按来源堆叠摘要。
+   - 解释发生了什么、为什么重要、变化在哪里、仍有哪些不确定性。
+   - 如果相邻议题对严谨回答必不可少，即使用户没有明确要求，也应纳入并说明原因。
+   - 如果新证据或新识别的相邻议题改变报告逻辑，先重构整体大纲，再交付；不要把新观点作为明显后补段落塞进去。
+   - 对技术路线、架构、产品策略或实现路径研究，要把每条路线综合成可执行选项，而不是只总结来源。每条路线应包含：核心原理、实现方式、适用场景、产品启发、证据强度、取舍，以及在需要比较时给出 1-5 分评分。
+   - 如果路线有明确系统结构，加入简洁 Mermaid 架构图或等效文本架构。优先展示数据流、决策点、反馈回路和治理边界。
+   - 对产品、市场、战略、商业计划或投资研究，在有价值时加入独立的“第一性原理分析”章节。不要只把第一性原理散落在发现、结论或建议里。
+   - 公司或产品战略研究中的“第一性原理分析”必须回答：公司为什么改变，外部或内部条件发生了什么变化，哪些用户/市场/技术约束迫使或奖励这种变化，以及这些约束如何因果连接到当前产品和商业化动作。
+   - 第一性原理分析应识别持久用户问题、底层约束、经济或工作流取舍、非显而易见切入点、做与买边界、MVP 范围、差异化、风险，以及适用时的开源参考项目。
+   - 标注证据强度：高、中、低。
+   - 来源稀薄、过期或冲突时，不要表现出过度确定。
+   - 最终综合前，询问用户是否需要调整输出角度或沉淀模板改进。
 
-5. Deliver.
-   - Include concise executive summary first.
-   - Cite sources for important claims.
-   - Include implications, recommendations, next steps, and open questions when useful.
-   - Write outward-facing reports in the corrected professional framing. Avoid sections such as "correction" or "user misconception" that expose the user's initial uncertainty; use neutral labels like "scope and terminology", "research assumptions", or "definition note" instead.
-   - When the user asks in Chinese or the output is intended for a Chinese knowledge base, use Chinese for all report framework headings and structural labels. Do not use English headings such as "Executive Summary", "Research Scope", "Key Findings", "Risks And Caveats", or "Source List" unless the user explicitly requests English.
-   - When writing files, create new files unless the user explicitly asks to replace an existing artifact. Use clear date/topic filenames and keep related Markdown/HTML outputs in the same folder when practical.
-   - After creating a file-based output, run a lightweight structural check before final delivery: file exists, section count is plausible, expected cards/tables/diagrams are present, links/anchors are not obviously broken, and no old file was unintentionally overwritten.
-   - Offer a more detailed appendix only when the user needs auditability.
-   - End with a short "skill improvement notes" section only if this run exposed concrete improvements to the skill.
+5. 交付。
+   - 先给简洁执行摘要。
+   - 重要主张必须附来源。
+   - 需要决策时，给出影响、建议、下一步和开放问题。
+   - 对外报告使用修正后的专业框架。避免“用户误解”“纠错”等暴露原始不确定性的标题；使用“范围与术语”“研究假设”“定义说明”等中性标签。
+   - 用户用中文提问或输出面向中文知识库时，报告结构标题全部使用中文。除非用户明确要求英文，不要使用 “Executive Summary”“Research Scope”“Key Findings”等英文标题。
+   - 写文件时，除非用户明确要求替换已有产物，否则创建新文件。使用清晰的日期/主题文件名；相关 Markdown/HTML 输出尽量放在同一目录。
+   - 文件型输出完成后，先做轻量结构检查：文件存在、章节数量合理、预期卡片/表格/图表存在、链接/锚点无明显错误、没有误覆盖旧文件。
+   - 只有用户需要审计性时，才提供更详细附录。
+   - 只有本轮暴露了明确改进点时，最后加入简短“skill improvement notes”。
 
-## Source Quality
+## 来源质量
 
-Use this hierarchy as a default:
+默认按以下层级判断来源质量：
 
-1. Primary, authoritative, current sources.
-2. High-quality expert analysis with clear methodology.
-3. Reputable journalism or industry analysis.
-4. Community reports, forums, and social sources for signals only.
-5. Unsourced claims only as leads to verify, not as evidence.
+1. 一手、权威、当前来源。
+2. 方法清晰的高质量专家分析。
+3. 可信媒体或行业分析。
+4. 社区报告、论坛和社交来源，只作为信号。
+5. 无来源主张只能作为待验证线索，不能作为证据。
 
-Downgrade trust when a source is outdated, anonymous, promotional, methodologically unclear, based on small samples, or has an obvious commercial incentive.
+如果来源过期、匿名、宣传味强、方法不透明、样本很小或存在明显商业利益，需要降低信任度。
 
-## Research Modes
+## 研究模式
 
-- **Quick scan**: answer in brief with a small number of high-signal sources.
-- **Standard research**: cover major subquestions, compare evidence, and produce recommendations.
-- **Deep report**: build a fuller evidence table, handle counterarguments, and include an appendix.
-- **Decision memo**: focus on options, tradeoffs, risks, and a recommended path.
+- **快速扫描**：少量高信号来源，简短回答。
+- **标准研究**：覆盖主要子问题、比较证据并给出建议。
+- **深度报告**：更完整证据表、反方观点和附录。
+- **决策备忘录**：聚焦选项、取舍、风险和推荐路径。
 
-If the user does not specify a mode, choose standard research for broad questions and quick scan for narrow questions.
+用户未指定模式时，宽泛问题默认使用标准研究；窄问题默认使用快速扫描。
 
-## Output Requirements
+## 输出要求
 
-Every research output should include:
+每份研究输出应包含：
 
-- Bottom line or executive summary.
-- Key findings with evidence.
-- Caveats, uncertainty, and conflicting signals.
-- Recommendations or implications when the user is making a decision.
-- For product, market, strategy, business-planning, or investment research, an explicit standalone section titled "First-Principles Analysis" or "第一性原理分析" when useful. This section must not be replaced by scattered reasoning inside other sections. For company/product-strategy reports, it must explicitly explain why the company changed, what happened in the market or technology environment, and how first-principles constraints lead to the observed product and sales strategy.
-- Source list with links or file paths.
+- 结论或执行摘要。
+- 带证据的关键发现。
+- 限制、不确定性和冲突信号。
+- 当用户在做决策时，给出建议或影响分析。
+- 对产品、市场、战略、商业计划或投资研究，在有价值时加入独立的“第一性原理分析”。该章节不能被散落的推理替代。公司/产品战略报告中，它必须解释公司为什么改变，市场或技术环境发生了什么，以及第一性原理约束如何导出当前产品和销售策略。
+- 来源清单，包含链接或文件路径。
 
-For Chinese reports, render those output requirements with Chinese section titles, for example: "执行摘要", "研究范围", "关键发现", "第一性原理分析", "技术路线", "销售方式与商业化", "风险与限制", "后续建议", and "来源清单". Preserve official product names, article titles, and quoted source titles in their original language when needed for accuracy.
+中文报告推荐使用这些章节标题：“执行摘要”“研究范围”“关键发现”“第一性原理分析”“技术路线”“销售方式与商业化”“风险与限制”“后续建议”“来源清单”。官方产品名、文章标题和引用来源标题可以保留原文，以保证准确性。
 
-For technical-route research, add a route comparison layer:
+技术路线研究需要加入路线比较层：
 
-- A route overview table: route, pain point addressed, feasible implementation direction.
-- Per-route details: core principle, implementation approach, practical scenarios, product implications, score, and key caveats.
-- Architecture diagrams where helpful, using Mermaid for reports that support it.
-- A scoring summary table with priority recommendation and rationale.
+- 路线总览表：路线、解决的痛点、可行实现方向。
+- 每条路线详情：核心原理、实现方式、适用场景、产品启发、评分、关键限制。
+- 有帮助时加入架构图，支持 Mermaid 的报告优先使用 Mermaid。
+- 加入评分汇总表，说明优先级建议和理由。
 
-HTML report outputs should preserve the full substantive content of the research while using a compact report layout. Avoid oversized hero sections, oversized titles, and marketing-page composition.
+HTML 报告应在紧凑报告布局中保留完整实质内容。避免超大 hero、超大标题和营销页式构图。
 
-For HTML reports, verify structure after generation when possible:
+生成 HTML 报告后尽量验证结构：
 
-- Title, first viewport, table of contents, section anchors, and source links exist.
-- Repeated elements match the report intent, such as source cards, route cards, diagrams, or timeline events.
-- Mermaid diagrams are embedded as source blocks or renderable diagram containers; note when CDN rendering requires network access.
-- If browser automation is unavailable, report the static checks that were run instead of implying visual QA was completed.
+- 标题、首屏、目录、章节锚点和来源链接存在。
+- 重复元素符合报告意图，例如来源卡片、路线卡片、图表或时间线事件。
+- Mermaid 图以源码块或可渲染容器嵌入；如果依赖 CDN，需要说明渲染需要网络。
+- 如果无法进行浏览器验证，说明已完成的静态检查，不要暗示已经完成视觉 QA。
 
-HTML slide deck outputs should adapt the research into a presentation narrative with 16:9 slides, strong visual hierarchy, keyboard navigation, and concise slide copy. Unlike full HTML reports, slide decks may compress wording and restructure content for presentation clarity.
+HTML slide deck 输出应把研究改写成演示叙事，使用 16:9 幻灯片、清晰视觉层级、键盘导航和简洁文案。不同于完整 HTML 报告，slide deck 可以为了演示清晰度压缩措辞和重构内容，但必须保留研究逻辑、关键证据、影响和建议。
 
-Do not pad with citations. Cite claims that matter.
+不要堆砌引用。只引用关键主张。
 
-## Templates
+## 模板
 
-Read `references/research-templates.md` when the user asks for a formal report, competitive analysis, technical selection, market research, or PRD-prep research.
+当用户要求正式报告、竞品分析、技术选型、市场研究或 PRD 前研究时，读取 `references/research-templates.md`。
 
-Read `references/html-report-template.md` when the user asks for a polished HTML report, static report page, or HTML version of a deep-research output. Use it as a content-preserving visual template, not as permission to summarize or shorten the research.
+当用户要求精美 HTML 报告、静态报告页或研究输出的 HTML 版本时，读取 `references/html-report-template.md`。把它作为保留内容的视觉模板，不要借此压缩或省略研究内容。
 
-Read `references/html-slide-deck-template.md` when the user asks for a PPT-style HTML deck, interactive HTML presentation, slideshow, or slide-style version of a research report. Slide decks may adapt and compress content for presentation, but must preserve the research logic, key evidence, implications, and recommendations.
+当用户要求 PPT 风格 HTML deck、交互式 HTML 演示、slideshow 或研究报告的幻灯片版本时，读取 `references/html-slide-deck-template.md`。幻灯片可以为演示效果压缩内容，但必须保留研究逻辑、关键证据、影响和建议。

@@ -2,28 +2,107 @@
 
 English | [简体中文](README.zh-CN.md)
 
-A portable deep-research workflow for Codex, Claude Code, and OpenClaw-style agents.
+A portable deep-research skill for **Codex**, **Claude Code**, and **OpenClaw-style agents**.
 
-This skill turns broad research prompts into evidence-backed synthesis with clear scope, source strategy, cross-checking, structured findings, first-principles product implications, and optional HTML report / HTML slide deck outputs.
+This repository is designed so that an agent can install it after receiving only this repository link:
+
+```text
+https://github.com/limubai360-source/deep-research-skill
+```
 
 ## What It Does
 
-- Frames research questions and identifies blind spots.
-- Prioritizes primary and authoritative sources.
-- Treats viral posts and marketing claims as leads, not facts.
-- Revisits the full outline when new evidence changes the report logic.
-- Produces executive summaries, timelines, caveats, recommendations, and source lists.
-- Supports polished HTML reports and 16:9 interactive HTML slide decks.
-- Adds product / business-planning analysis when useful, including MVP scope, differentiation, risks, and open-source references.
+- Frames research questions, assumptions, scope, and blind spots.
+- Designs source strategies and prioritizes primary / authoritative sources.
+- Treats marketing claims, viral posts, and community narratives as leads until verified.
+- Produces evidence-backed synthesis, decision memos, formal reports, HTML reports, and HTML slide decks.
+- Supports product / market / business-planning research with first-principles analysis, MVP implications, risks, and open-source references.
+
+## One-Line Install
+
+### Codex
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/limubai360-source/deep-research-skill/main/install.sh | bash -s -- --host codex
+```
+
+Installs to:
+
+```text
+~/.codex/skills/deep-research
+```
+
+### Claude Code
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/limubai360-source/deep-research-skill/main/install.sh | bash -s -- --host claude
+```
+
+Installs to:
+
+```text
+~/.claude/skills/deep-research
+~/.claude/commands/deep-research.md
+```
+
+Use:
+
+```text
+/deep-research <your research question>
+```
+
+### OpenClaw
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/limubai360-source/deep-research-skill/main/install.sh | bash -s -- --host openclaw
+```
+
+Installs to:
+
+```text
+~/.openclaw/skills/deep-research
+```
+
+If your OpenClaw setup uses another skills directory, run:
+
+```bash
+OPENCLAW_HOME=/path/to/openclaw-home curl -fsSL https://raw.githubusercontent.com/limubai360-source/deep-research-skill/main/install.sh | bash -s -- --host openclaw
+```
+
+## Agent Install Prompt
+
+If an agent says it cannot install directly from a GitHub link, give it this prompt:
+
+```text
+Install this custom deep-research skill from GitHub:
+https://github.com/limubai360-source/deep-research-skill
+
+Run the install script for your host:
+- Codex: curl -fsSL https://raw.githubusercontent.com/limubai360-source/deep-research-skill/main/install.sh | bash -s -- --host codex
+- Claude Code: curl -fsSL https://raw.githubusercontent.com/limubai360-source/deep-research-skill/main/install.sh | bash -s -- --host claude
+- OpenClaw: curl -fsSL https://raw.githubusercontent.com/limubai360-source/deep-research-skill/main/install.sh | bash -s -- --host openclaw
+
+After installation, restart or reload the agent session if needed.
+```
+
+## Manual Install From A Clone
+
+```bash
+git clone https://github.com/limubai360-source/deep-research-skill.git
+cd deep-research-skill
+./install.sh --host codex      # or claude / openclaw
+```
 
 ## Repository Layout
 
 ```text
 .
+├── install.sh
 ├── AGENTS.md
 ├── CLAUDE.md
 ├── OPENCLAW.md
 ├── README.md
+├── README.zh-CN.md
 ├── .claude/
 │   └── commands/
 │       └── deep-research.md
@@ -38,45 +117,11 @@ This skill turns broad research prompts into evidence-backed synthesis with clea
             └── research-templates.md
 ```
 
-## Codex Installation
+## Skill Language
 
-Copy the skill folder into your Codex skills directory:
-
-```bash
-mkdir -p "$CODEX_HOME/skills"
-cp -R skills/deep-research "$CODEX_HOME/skills/deep-research"
-```
-
-Then trigger it by asking for `deep-research`, market research, technical research, competitive analysis, or a formal evidence-backed report.
-
-## Claude Code Usage
-
-Claude Code will read `CLAUDE.md` and can use the slash command:
-
-```text
-/deep-research <your research question>
-```
-
-The slash command points Claude Code to `skills/deep-research/SKILL.md` and the relevant references.
-
-## OpenClaw Usage
-
-OpenClaw-style agents should read `OPENCLAW.md` or `AGENTS.md` first, then follow:
-
-```text
-skills/deep-research/SKILL.md
-```
-
-The skill is intentionally plain Markdown plus references, so agents that understand repository-level instruction files can use it without a proprietary runtime.
-
-## Output Modes
-
-- Quick scan: short answer with a few high-signal sources.
-- Standard research: major subquestions, evidence comparison, recommendations.
-- Deep report: fuller evidence, counterarguments, appendix.
-- Decision memo: options, tradeoffs, risks, recommended path.
-- HTML report: content-preserving static report page.
-- HTML slide deck: PPT-style 16:9 interactive HTML presentation.
+- Skill introduction and installation docs are bilingual.
+- `skills/deep-research/SKILL.md` uses Chinese instructions.
+- Official product names, source titles, and citations may keep their original language for accuracy.
 
 ## License
 
